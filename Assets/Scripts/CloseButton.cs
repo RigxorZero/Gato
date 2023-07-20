@@ -7,6 +7,5 @@ public class CloseButton : MonoBehaviour
     {
         // Cierra el juego
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
