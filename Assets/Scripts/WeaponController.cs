@@ -7,7 +7,6 @@ public class WeaponController : MonoBehaviour
     public Vector3[] spriteLocalPositions; // Arreglo de posiciones locales personalizadas para cada sprite
 
     private SpriteRenderer spriteRenderer;
-    private int lastSpriteIndex = 0;
     private int currentSpriteIndex = 0;
 
     private void Awake()

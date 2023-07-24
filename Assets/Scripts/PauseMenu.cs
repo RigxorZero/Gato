@@ -5,7 +5,7 @@ public class ControladorPausa : MonoBehaviour
 {
     public GameObject menuPausa;
 
-    private bool estaPausado = false;
+    [SerializeField] private bool estaPausado = false;
 
     private void Update()
     {
@@ -14,7 +14,6 @@ public class ControladorPausa : MonoBehaviour
         {
             // Alternar el estado de pausa
             estaPausado = !estaPausado;
-            Debug.Log("Tecla ESC presionada.");
 
             // Activar o desactivar el menú de pausa según el estado de pausa
             if (estaPausado)
@@ -46,9 +45,6 @@ public class ControladorPausa : MonoBehaviour
         // Ocultar el menú de pausa y reanudar el tiempo
         Time.timeScale = 1f;
         menuPausa.SetActive(false);
-
-        // Reiniciar el estado de pausa
-        estaPausado = false;
     }
 
     // Agregar aquí las funciones para los botones del menú de pausa
@@ -63,20 +59,19 @@ public class ControladorPausa : MonoBehaviour
 
     public void ReiniciarJuego()
     {
+        estaPausado = false; // Actualizar el estado de pausa cuando se presiona el botón
         // Recargar la escena actual
-        estaPausado = false;
         DesactivarMenuPausa();
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(escenaActual);
-        
     }
 
     public void IrAMenuPrincipal()
     {
-        // Cargar la escena del menú principal (asegúrate de que el nombre de la escena sea correcto)
-        estaPausado = false;
+        estaPausado = false; // Actualizar el estado de pausa cuando se presiona el botón
         DesactivarMenuPausa();
+        // Cargar la escena del menú principal (asegúrate de que el nombre de la escena sea correcto)
         SceneManager.LoadScene("StartScene");
     }
-
 }
+
