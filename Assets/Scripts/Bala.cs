@@ -11,6 +11,7 @@ public class Bala : MonoBehaviour
         int playerLayer = LayerMask.NameToLayer("PlayerBullet");
         int enemyLayer = LayerMask.NameToLayer("EnemyBullet");
         int enemyLayerMask = LayerMask.NameToLayer("Enemy");
+        int playerLayerMask = LayerMask.NameToLayer("Player");
 
         // Verificar si la bala colisionó con un muro
         if (collisionLayer == LayerMask.NameToLayer("Wall"))
@@ -28,11 +29,26 @@ public class Bala : MonoBehaviour
         // Verificar si la bala colisionó con un enemigo (solo si la bala es del jugador)
         else if (gameObject.layer == playerLayer && collisionLayer == enemyLayerMask)
         {
+            // Incrementar el puntaje cuando la bala del jugador golpea al enemigo
+            GameManager.instance.IncrementarPuntaje(1);
+
             // Destruir al enemigo si es golpeado por la bala del jugador
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
+        // Verificar si la bala colisionó con el jugador (solo si la bala es del enemigo)
+        else if (gameObject.layer == enemyLayer && collisionLayer == playerLayerMask)
+        {
+            // Restar una vida al jugador si es golpeado por la bala del enemigo
+            GameManager.instance.PerderVida(1);
+
+            // Destruir la bala del enemigo
+            Destroy(gameObject);
+        }
     }
 }
+
+
+
 
 

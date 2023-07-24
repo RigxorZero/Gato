@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2391532542230819676}
   - component: {fileID: 8889205841038722401}
   - component: {fileID: 3917442039677610148}
-  - component: {fileID: -792461324501935058}
   m_Layer: 8
   m_Name: Tower
   m_TagString: Untagged
@@ -196,22 +195,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabBala: {fileID: 5694753542447533982, guid: 3ef06d6a7e80a8e45a8d7f6e917a3b12, type: 3}
   velocidadBala: 5
---- !u!114 &-792461324501935058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827594921942653390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad5588ac67855545a1e93187b004451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabObjeto: {fileID: 0}
-  esquinaInferiorIzquierda: {x: 0, y: 0}
-  esquinaSuperiorDerecha: {x: 0, y: 0}
-  tiempoEntreGeneraciones: 10
-  capaObstaculos:
-    serializedVersion: 2
-    m_Bits: 0
+  distanciaActivacion: 2.5
