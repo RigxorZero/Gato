@@ -28,6 +28,12 @@ public class ControladorPausa : MonoBehaviour
         }
     }
 
+    // Método público para consultar el estado de pausa desde otros scripts
+    public bool EstaPausado()
+    {
+        return estaPausado;
+    }
+
     private void ActivarMenuPausa()
     {
         // Mostrar el menú de pausa y pausar el tiempo
@@ -58,13 +64,18 @@ public class ControladorPausa : MonoBehaviour
     public void ReiniciarJuego()
     {
         // Recargar la escena actual
+        estaPausado = false;
+        DesactivarMenuPausa();
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(escenaActual);
+        
     }
 
     public void IrAMenuPrincipal()
     {
         // Cargar la escena del menú principal (asegúrate de que el nombre de la escena sea correcto)
+        estaPausado = false;
+        DesactivarMenuPausa();
         SceneManager.LoadScene("StartScene");
     }
 
