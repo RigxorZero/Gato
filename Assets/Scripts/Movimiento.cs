@@ -76,8 +76,6 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-
-
     private void FixedUpdate()
     {
         rb2D.MovePosition(rb2D.position + Time.fixedDeltaTime * velocidadMovimiento * direccion);

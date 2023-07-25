@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +14,8 @@ public class GameManager : MonoBehaviour
 
     public Sprite spriteCorazonLleno; // Asigna el sprite del corazón lleno en el inspector de Unity.
     public Sprite spriteCorazonGris; // Asigna el sprite del corazón gris en el inspector de Unity.
-
+    private bool tiempoRalentizado = false;
+    public Movimiento jugador;
     private int vidas = 3; // Valor inicial de vidas.
 
     private void Awake()
@@ -38,10 +41,28 @@ public class GameManager : MonoBehaviour
         ActualizarHearts();
     }
 
+    private void Update()
+    {
+        // Otras partes del código...
+
+        // Verificar si el jugador ha perdido todas las vidas
+        if (IsGameOver())
+        {
+            // Cambiar a la nueva escena cuando el jugador muere
+            SceneManager.LoadScene("StartScene");
+        }
+    }
+
     public void IncrementarPuntaje(int cantidad)
     {
         // Incrementar el puntaje con la cantidad especificada
         puntaje += cantidad;
+
+        // Verificar si el puntaje es un múltiplo de 10 para recuperar una vida
+        if (puntaje % 10 == 0)
+        {
+            RecuperarVida();
+        }
 
         // Actualizar el texto del puntaje
         ActualizarPuntajeText();
@@ -62,6 +83,16 @@ public class GameManager : MonoBehaviour
         ActualizarHPImage();
         // Actualizar los corazones de vidas
         ActualizarHearts();
+    }
+
+    private void RecuperarVida()
+    {
+        // Asegurarse de que no exceda el máximo de 3 vidas
+        if (vidas < 3)
+        {
+            vidas++;
+            ActualizarHearts();
+        }
     }
 
     private void ActualizarPuntajeText()
@@ -98,6 +129,44 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void RalentizarTiempo(float duracionRalentizacion)
+    {
+        if (!tiempoRalentizado)
+        {
+            // Ralentizar el tiempo
+            Time.timeScale = 0.5f; // Puedes ajustar el valor para cambiar la ralentización
+
+            // Desactivar la física de los objetos para evitar problemas con la ralentización
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+            tiempoRalentizado = true;
+            // Llamar a un método para revertir la ralentización después de la duración especificada
+            StartCoroutine(RevertirRalentizacion(duracionRalentizacion));
+        }
+    }
+
+    private IEnumerator RevertirRalentizacion(float duracionRalentizacion)
+    {
+        yield return new WaitForSeconds(duracionRalentizacion);
+
+        // Revertir la ralentización del tiempo
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+
+        tiempoRalentizado = false;
+    }
+
+    public int ObtenerPuntaje()
+    {
+        return puntaje;
+    }
+
+    public bool IsGameOver()
+    {
+        return vidas <= 0;
+    }
 }
+
 
 

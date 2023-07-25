@@ -1389,6 +1389,7 @@ MonoBehaviour:
   - {fileID: 1680659789}
   spriteCorazonLleno: {fileID: -626825030, guid: c8582afa1a1bba5478b2db053d2e6461, type: 3}
   spriteCorazonGris: {fileID: -1112693898, guid: c8582afa1a1bba5478b2db053d2e6461, type: 3}
+  jugador: {fileID: 1164027615}
 --- !u!4 &1107192398
 Transform:
   m_ObjectHideFlags: 0
@@ -1871,6 +1872,7 @@ GameObject:
   - component: {fileID: 1410441260}
   - component: {fileID: 1410441261}
   - component: {fileID: 1410441262}
+  - component: {fileID: 1410441263}
   m_Layer: 0
   m_Name: EnemyController
   m_TagString: Untagged
@@ -1927,6 +1929,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   intervaloEntreEnemigos: 15
+--- !u!114 &1410441263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410441258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a45c40b1266fa48a0e315855b7eff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabEnemigoEstatico: {fileID: 2511228596011661160, guid: cdc75fbd9b9fb674ab4a3764824b410d, type: 3}
+  capaMuros:
+    serializedVersion: 2
+    m_Bits: 1024
+  intervaloEntreEnemigos: 20
 --- !u!1 &1468902104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2296318669163202098, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}

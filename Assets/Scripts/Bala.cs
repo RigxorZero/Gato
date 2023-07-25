@@ -32,6 +32,9 @@ public class Bala : MonoBehaviour
             // Incrementar el puntaje cuando la bala del jugador golpea al enemigo
             GameManager.instance.IncrementarPuntaje(1);
 
+            // Ralentizar el tiempo durante 2 segundos
+            GameManager.instance.RalentizarTiempo(2f);
+
             // Destruir al enemigo si es golpeado por la bala del jugador
             Destroy(gameObject);
             Destroy(collision.gameObject);
@@ -42,11 +45,20 @@ public class Bala : MonoBehaviour
             // Restar una vida al jugador si es golpeado por la bala del enemigo
             GameManager.instance.PerderVida(1);
 
+            // Verificar si el jugador tiene cero vidas
+            if (GameManager.instance.IsGameOver())
+            {
+                // Guardar el puntaje solo si el jugador ha perdido todas las vidas
+                int puntajeActual = GameManager.instance.ObtenerPuntaje();
+                PlayerPrefs.SetInt("PuntajeGuardado", puntajeActual);
+            }
+
             // Destruir la bala del enemigo
             Destroy(gameObject);
         }
     }
 }
+
 
 
 
