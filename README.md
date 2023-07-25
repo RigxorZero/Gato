@@ -1,12 +1,32 @@
-# Gato
+# Proyecto Final Unity
+
  Primera parte de proyecto final
 
 ## Integrantes
+
 Hector Villalobos
 
 ## Descripción del proyecto
-El juego termina una vez se acaban las posibles jugadas o gana uno de los dos jugadores. Siempre comienza con la X.
 
-## Controles
+Recopilación de proyectos realizados a lo largo del semestre, incluye dos juegos actualmente
+
+## Gato
+
+El juego termina cuando no hay movimientos posibles o un jugador gana, es del tipo JcJ (Jugador contra Jugador).
+
+### Controles gato
+
 Clic para seleccionar la posición.
 ESC para abrir el menú de pausa.
+
+## Shooter
+
+El juego termina cuando se pierden las tres vidas, se envia a la pantalla de inicio y se registra el puntaje obtenido.
+Cada 10 enemigos eliminados se gana una vida.
+Los enemigos se generan cada 10, 15 y 20 segundos.
+El tiempo se ralentiza cuando se elimina un enemigo.
+
+### Controles shooter
+
+Movimiento con WASD o flechas direccionales según se prefiera.
+Disparo con letra K.
