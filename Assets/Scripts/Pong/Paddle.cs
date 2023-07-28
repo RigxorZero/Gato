@@ -6,7 +6,7 @@ public class Paddle : MonoBehaviour
 {
     [SerializeField] private float speed = 7f;
     [SerializeField] private bool isPaddle1;
-    private float yBound = 3.75f;
+    private readonly float yBound = 3.75f;
     void Update()
     {
         float movement;

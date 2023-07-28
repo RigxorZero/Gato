@@ -33,6 +33,12 @@ public class ControladorPausa : MonoBehaviour
         return estaPausado;
     }
 
+    // Método público para consultar el estado de pausa desde otros scripts
+    public void CambiarPausado()
+    {
+        estaPausado = !estaPausado;
+    }
+
     private void ActivarMenuPausa()
     {
         // Mostrar el menú de pausa y pausar el tiempo

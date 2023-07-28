@@ -5,10 +5,11 @@
 ## Integrantes
 
 Hector Villalobos
+Antonia Donoso
 
 ## Descripción del proyecto
 
-Recopilación de proyectos realizados a lo largo del semestre, incluye dos juegos actualmente
+Recopilación de proyectos realizados a lo largo del semestre, incluye tres juegos.
 
 ## Gato
 
@@ -30,3 +31,14 @@ El tiempo se ralentiza cuando se elimina un enemigo.
 
 Movimiento con WASD o flechas direccionales según se prefiera.
 Disparo con letra K.
+
+## Pong
+
+El juego termina cuando uno de los lados llega a 10 puntos.
+La velocidad de las pelotas aumenta con cada rebote.
+Al anotar apareceran dos pelotas en el centro de la cancha.
+
+### Controles pong
+
+Jugador de la izquierda de la pantalla se controla con W y S.
+Jugador de la derecha de la pantalla se controla con las fechas arriba y abajo.

@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShooterScene.unity
     guid: e2cdf22ae22823f4683e0ff53e16bf3b
+  - enabled: 1
+    path: Assets/Scenes/PongScene.unity
+    guid: 9d2666e6047af3748b100a85e0dccb8f
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: 3d0170abf32d34a4e829c2031cb605fc
   m_configObjects: {}

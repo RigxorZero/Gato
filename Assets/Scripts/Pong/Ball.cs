@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float inicialvelocity = 4f;
+    private float initialVelocity = 4f;
     private Rigidbody2D ballRB;
+    private float minThreshold = 0.5f;
+
     void Start()
     {
         ballRB = GetComponent<Rigidbody2D>();
         Launch();
     }
-    private void Launch()
+
+    public void Launch()
     {
-        float xVelocity = Random.Range(0, 2) == 0 ? 1 : -1;
-        float yVelocity = Random.Range(0, 2) == 0 ? 1 : -1;
-        ballRB.velocity = new Vector2(xVelocity, yVelocity) * inicialvelocity;
+        Vector2 randomDirection;
+
+        do
+        {
+            randomDirection = Random.insideUnitCircle.normalized;
+        }
+        while (Mathf.Abs(randomDirection.x) < minThreshold || Mathf.Abs(randomDirection.y) < minThreshold);
+
+        ballRB.velocity = randomDirection * initialVelocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,19 +32,24 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.CompareTag("Point1"))
         {
             Manager.Instance.Paddle2score();
-            Manager.Instance.Restart();
+            Destroy(gameObject);
             Launch();
+
+            // Llamamos al método para generar las pelotas adicionales
+            Manager.Instance.GenerateExtraBalls();
         }
-        else if(collision.gameObject.CompareTag("Point2"))
+        else if (collision.gameObject.CompareTag("Point2"))
         {
             Manager.Instance.Paddle1score();
-            Manager.Instance.Restart();
+            Destroy(gameObject);
             Launch();
-        }
-    }
 
-    void Update()
-    {
-        
+            // Llamamos al método para generar las pelotas adicionales
+            Manager.Instance.GenerateExtraBalls();
+        }
+
+        // Aumentar la velocidad real de la pelota con cada rebote
+        ballRB.velocity = ballRB.velocity.normalized * (initialVelocity += 0.2f);
     }
 }
+

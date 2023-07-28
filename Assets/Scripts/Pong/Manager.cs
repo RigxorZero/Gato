@@ -11,8 +11,7 @@ public class Manager : MonoBehaviour
     [SerializeField] private Transform paddle1Transform;
     [SerializeField] private Transform paddle2Transform;
     [SerializeField] private Transform ballTransform;
-    [SerializeField] private TMP_Text WIN;
-
+    public GameObject ballPrefab;
     private int paddle1score;
     private int paddle2score;
 
@@ -40,21 +39,33 @@ public class Manager : MonoBehaviour
     }
     public void Restart()
     {
-        paddle1Transform.position = new Vector2(paddle1Transform.position.x, 0);
-        paddle2Transform.position = new Vector2(paddle2Transform.position.x, 0);
         ballTransform.position = new Vector2(0, 0);
     }
     public void Ganador()
     {
         if (paddle1score == 10)
         {
-            SceneManager.LoadScene("Victory Screen");
-            WIN.text = "Jugador 1 gana";
+            PlayerPrefs.SetInt("Winner", 1);
+            SceneManager.LoadScene("VictoryScene");
         }
-        else if (paddle2score == 10) 
+        else if (paddle2score == 10)
         {
-            SceneManager.LoadScene("Victory Screen");
-            WIN.text = "Jugador 2 gana";
+            PlayerPrefs.SetInt("Winner", 2);
+            SceneManager.LoadScene("VictoryScene");
         }
+    }
+
+
+    public void GenerateExtraBalls()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            _ = Instantiate(ballPrefab, new Vector2(0, 0), Quaternion.identity);
+        }
+    }
+
+    private void Update()
+    {
+        Ganador();
     }
 }

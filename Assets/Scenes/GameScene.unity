@@ -486,7 +486,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.1764706, g: 0.7960785, b: 0.18823531, a: 0}
+  m_BackGroundColor: {r: 0.21960786, g: 0.68235296, b: 0.2901961, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1768,6 +1768,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2081547963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1404982927268545778, guid: 9e042ccf32b3b324491c9d1802dd55ae, type: 3}
+  m_PrefabInstance: {fileID: 4027729425977837813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762fb87a7dfdd244b87d75edd146ae12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &989250310309955787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1819,6 +1830,34 @@ PrefabInstance:
     - target: {fileID: 2296318669163202098, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069580047109522034, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069580047109522034, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069580047109522034, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2081547963}
+    - target: {fileID: 5069580047109522034, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069580047109522034, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CambiarPausado
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069580047109522034, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ControladorPausa, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069580047109522034, guid: 3346e9e51d6da824e83f0a68265cf595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
